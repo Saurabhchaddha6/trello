@@ -1,30 +1,29 @@
 import mongoose from "mongoose";
 
-let cachedConnection: typeof mongoose | null = null;
 
-async function dbConnect(): Promise<typeof mongoose> {
-  if (cachedConnection) {
-    console.log("Using existing database connection");
-    return cachedConnection;
-  }
+type ConnectionObject = {
+    isConnected?: number
+}
 
-  if (!process.env.MONGODB_URL) {
-    throw new Error("Please define the MONGODB_URL environment variable");
-  }
+const connection: ConnectionObject = {}
 
-  try {
-    const opts = {
-      bufferCommands: false,
-    };
+async function dbConnect(): Promise<void>{
+    if(connection.isConnected){
+        console.log("already connected to database");
+        return
+    }
+    try{
+        const db = await mongoose.connect(process.env.MONGODB_URL || '')
 
-    const connection = await mongoose.connect(process.env.MONGODB_URL, opts);
-    cachedConnection = connection;
-    console.log("New database connection established");
-    return connection;
-  } catch (error) {
-    console.error("Database connection failed", error);
-    throw error; // Re-throw the error instead of exiting the process
-  }
+        connection.isConnected=db.connections[0].readyState
+
+        console.log("Db connected successfully");
+
+    } catch(error) {
+        console.log("Database connection failed")
+
+        process.exit(1)
+    }
 }
 
 export default dbConnect;
