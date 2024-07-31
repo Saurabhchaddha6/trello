@@ -8,13 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'fade-in': 'fadeIn 300ms ease-in-out',
+        'fade-out': 'fadeOut 300ms ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-20px)' },
+        },
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'custom-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #AFA3FF 100%)',
+        'frame-gradient': 'linear-gradient(180deg, #F7F7F7 0%, #F0F0F0 100%)',
       },
     },
   },
   plugins: [],
 };
+
 export default config;
