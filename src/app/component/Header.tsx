@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-const Header = ({toggleAddTask}) =>{
+const Header = ({toggleAddTask}:any) =>{
     return(
         <div>
   <div className="flex flex-col items-stretch p-0 gap-[16px] w-full max-w-[1107px] h-[253px]">

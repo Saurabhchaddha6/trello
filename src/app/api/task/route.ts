@@ -16,7 +16,7 @@ interface TaskRequestBody {
 export async function GET(req: any) {
     try {
       await dbConnect();
-      const session = await getServerSession(req);
+      const session:any = await getServerSession(req);
       console.log('Full session object:', JSON.stringify(session, null, 2));
   
       if (!session || !session.user || !session.user.email) {

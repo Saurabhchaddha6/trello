@@ -2,10 +2,10 @@ import React from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 import PropTypes from 'prop-types';
 
-const CardComponent = ({ index, title, description, priority, dueDate, createdAt, id }) => {
+const CardComponent = ({ index, title, description, priority, dueDate, createdAt, id }:any) => {
   console.log('Rendering CardComponent:', { id, index, title });
 
-  const getPriorityColor = (priority) => {
+  const getPriorityColor = (priority:any) => {
     switch (priority) {
       case 'Urgent': return 'bg-[#FF6B6B]';
       case 'Medium': return 'bg-[#FFA235]';
@@ -14,9 +14,9 @@ const CardComponent = ({ index, title, description, priority, dueDate, createdAt
     }
   };
 
-  const getTimeElapsed = (createdAt) => {
-    const now = new Date();
-    const createdTime = new Date(createdAt);
+  const getTimeElapsed = (createdAt:any) => {
+    const now:any = new Date();
+    const createdTime:any = new Date(createdAt);
     const diff = now - createdTime;
     const seconds = Math.floor(diff / 1000);
     const minutes = Math.floor(seconds / 60);
