@@ -4,14 +4,14 @@ import User from "@/model/UserModel"; // Assuming you have a User model
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next"; // Adjust this import based on your auth setup
 
-async function getUserFromSession(session) {
+async function getUserFromSession(session:any) {
   if (!session || !session.user || !session.user.email) {
     return null;
   }
   return await User.findOne({ email: session.user.email });
 }
 
-export async function PUT(req, { params }) {
+export async function PUT(req:any, { params }:any) {
   try {
     await dbConnect();
     const session = await getServerSession(req);
@@ -38,7 +38,7 @@ export async function PUT(req, { params }) {
   }
 }
 
-export async function DELETE(req, { params }) {
+export async function DELETE(req:any, { params }:any) {
   try {
     await dbConnect();
     const session = await getServerSession(req);
