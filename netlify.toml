@@ -1,2 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
 [functions]
-  timeout = 30
+  node_bundler = "esbuild"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions."*"]
+  included_files = ["dist/**"]
+
+[build.environment]
+  NEXT_USE_NETLIFY_EDGE = "true"
+
+[functions.timeout]
+  duration = 30
