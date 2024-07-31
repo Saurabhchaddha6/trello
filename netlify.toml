@@ -1,12 +1,5 @@
-[build]
-  command = "npm run build"
-  publish = "out"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
 [functions]
   node_bundler = "esbuild"
 
-[functions."*"]
-  timeout = 30
+[functions.myFunction]
+  timeout = 26
