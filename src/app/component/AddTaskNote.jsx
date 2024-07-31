@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 
-const AddTaskNote = ({onClose,isVisible,taskId}) => {
+const AddTaskNote = ({onClose,isVisible}) => {
 
 
     const {data: session} = useSession();
@@ -26,7 +26,7 @@ const AddTaskNote = ({onClose,isVisible,taskId}) => {
       const timer = setTimeout(() => setIsAnimating(false), 300); // Match duration with animation
       return () => clearTimeout(timer);
     }
-  }, [isVisible, taskId]);
+  }, [isVisible,]);
 
   const fetchTaskDetails = async () => {
     try {

@@ -29,7 +29,7 @@ useEffect(() => {
       <div className="flex flex-col items-start p-4 w-full md:ml-64">
         <Header toggleAddTask={toggleAddTask}/>
         <TaskCard toggleAddTask={toggleAddTask} />
-        {isAddTaskVisible && <AddTaskNote isVisible={isAddTaskVisible} onClose={toggleAddTask} />}
+        {isAddTaskVisible && <AddTaskNote isVisible={isAddTaskVisible} onClose={toggleAddTask}  />}
       </div>
     </div>
   );

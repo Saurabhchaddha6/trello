@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/component/AddTaskNote.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/component/AddTaskNote.jsx", "src/app/api/task/route.js", "src/app/component/TaskCard.jsx"],
   "exclude": ["node_modules"]
 }
