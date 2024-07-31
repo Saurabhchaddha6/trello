@@ -19,7 +19,7 @@ export async function POST(request: any) {
         { status: 400 }
       );
     } else {
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(password, 6);
       const newUser = new User({
         name,
         email,
