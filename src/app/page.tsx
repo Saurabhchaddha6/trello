@@ -14,7 +14,7 @@ export default function Home() {
       router.push("/dashboard");
     } else {
       // User is not authenticated, redirect to sign-up page
-      router.push("/signup");
+      router.push("/sign-up");
     }
   }, [session, router]);
 
