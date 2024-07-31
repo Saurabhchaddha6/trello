@@ -14,5 +14,9 @@
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"
 
-[functions.timeout]
-  duration = 30
+
+[functions."*"]
+  included_files = ["dist/**"]
+
+[functions.api]
+  timeout = 30
